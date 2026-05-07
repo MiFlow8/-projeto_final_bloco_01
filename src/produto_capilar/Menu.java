@@ -52,18 +52,60 @@ public class Menu {
 					    break;
 					
 				case 2:
+					
 					System.out.println("Listar produtos...");
 					controller.listar();
 					break;
+					
 				case 3:
-					System.out.println("Buscar produto...");
-					break;
+					
+					System.out.println("Digite o ID:");
+				    int idBusca = leia.nextInt();
+
+				    ProdutoCapilar buscado = controller.buscar(idBusca);
+
+				    if (buscado != null) {
+				        System.out.println("Produto encontrado: " + buscado.getNome());
+				    }
+
+				    break;
+				    
 				case 4:
-					System.out.println("Atualizar produto...");
-					break;
+					
+					 System.out.println("Digite o ID do produto:");
+					    int id = leia.nextInt();
+
+					    leia.nextLine(); 
+
+					    System.out.println("Novo nome:");
+					    String nome = leia.nextLine();
+
+					    System.out.println("Novo preço:");
+					    double preco = leia.nextDouble();
+
+					    leia.nextLine();
+
+					    System.out.println("Nova marca:");
+					    String marca = leia.nextLine();
+
+					    System.out.println("Novo tipo:");
+					    String tipo = leia.nextLine();
+
+					    ProdutoCapilar atualizado = new Progressiva(id, nome, preco, marca, tipo);
+
+					    controller.atualizar(atualizado);
+
+					    break;
+	   
 				case 5:
-					System.out.println("Excluir produto...");
-					break;
+					
+					 System.out.println("Digite o ID para excluir:");
+					    int idExcluir = leia.nextInt();
+
+					    controller.deletar(idExcluir);
+
+					    break;
+					    
 				default:
 					System.out.println("Opção inválida! ");
 				

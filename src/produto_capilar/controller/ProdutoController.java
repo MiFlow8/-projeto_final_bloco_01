@@ -2,7 +2,6 @@ package produto_capilar.controller;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import produto_capilar.model.ProdutoCapilar;
 
 public class ProdutoController {
@@ -21,7 +20,11 @@ public class ProdutoController {
             System.out.println("Nenhum produto cadastrado.");
         } else {
             for (ProdutoCapilar p : produtos) {
-                System.out.println(p.getNome());
+            	System.out.println("ID: " + p.getId());
+                System.out.println("Nome: " + p.getNome());
+                System.out.println("Marca: " + p.getMarca());
+                System.out.println("Preço: " + p.getPreco());
+                System.out.println("------------------------");
             }
         }
     }
