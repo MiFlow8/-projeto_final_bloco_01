@@ -1,6 +1,7 @@
 package produto_capilar;
 
 import java.util.Scanner;
+import produto_capilar.model.Progressiva;
 
 public class Menu {
 
@@ -38,8 +39,18 @@ public class Menu {
 				
 				switch(opcao) {
 				case 1:
-					System.out.println("Cadastrar produto...");
+					System.out.println("Cadastrando produto...");
+					
+					Progressiva p = new Progressiva(1, "Escova Progressiva Nutri liss", 120.0, "Milly Hair", "Sem formol");
+					
+					System.out.println("\nProduto cadastrado com sucesso!");
+					System.out.println("Nome: " + p.getNome());
+					System.out.println("Marca: " + p.getMarca());
+					System.out.println("Preço: " + p.getPreco());
+					System.out.println("Tipo: " + p.getTipoAlisamento());
 					break;
+					
+					
 				case 2:
 					System.out.println("Listar produtos...");
 					break;
