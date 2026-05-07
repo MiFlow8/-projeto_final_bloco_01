@@ -1,12 +1,17 @@
 package produto_capilar;
 
 import java.util.Scanner;
+import produto_capilar.model.Progressiva;
+import produto_capilar.model.ProdutoCapilar;
+import produto_capilar.controller.ProdutoController;
 
 public class Menu {
 
 	public static void main(String[] args) {
 		
 		 Scanner leia = new Scanner(System.in);
+		 
+		 ProdutoController controller = new ProdutoController();
 		 
 			int opcao;
 			
@@ -38,20 +43,69 @@ public class Menu {
 				
 				switch(opcao) {
 				case 1:
-					System.out.println("Cadastrar produto...");
-					break;
+					System.out.println("Cadastrando produto...");
+					
+					 ProdutoCapilar p = new Progressiva(1,"Escova Progressiva Nutri Liss",120.0, "Milly hair", "Sem formol");
+
+					   controller.cadastrar(p);
+
+					    break;
+					
 				case 2:
+					
 					System.out.println("Listar produtos...");
+					controller.listar();
 					break;
+					
 				case 3:
-					System.out.println("Buscar produto...");
-					break;
+					
+					System.out.println("Digite o ID:");
+				    int idBusca = leia.nextInt();
+
+				    ProdutoCapilar buscado = controller.buscar(idBusca);
+
+				    if (buscado != null) {
+				        System.out.println("Produto encontrado: " + buscado.getNome());
+				    }
+
+				    break;
+				    
 				case 4:
-					System.out.println("Atualizar produto...");
-					break;
+					
+					 System.out.println("Digite o ID do produto:");
+					    int id = leia.nextInt();
+
+					    leia.nextLine(); 
+
+					    System.out.println("Novo nome:");
+					    String nome = leia.nextLine();
+
+					    System.out.println("Novo preço:");
+					    double preco = leia.nextDouble();
+
+					    leia.nextLine();
+
+					    System.out.println("Nova marca:");
+					    String marca = leia.nextLine();
+
+					    System.out.println("Novo tipo:");
+					    String tipo = leia.nextLine();
+
+					    ProdutoCapilar atualizado = new Progressiva(id, nome, preco, marca, tipo);
+
+					    controller.atualizar(atualizado);
+
+					    break;
+	   
 				case 5:
-					System.out.println("Excluir produto...");
-					break;
+					
+					 System.out.println("Digite o ID para excluir:");
+					    int idExcluir = leia.nextInt();
+
+					    controller.deletar(idExcluir);
+
+					    break;
+					    
 				default:
 					System.out.println("Opção inválida! ");
 				
