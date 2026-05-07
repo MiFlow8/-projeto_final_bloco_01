@@ -1,6 +1,6 @@
-package projeto_final_bloco_01;
+package produto_capilar;
 
-public class ProdutoCapilar {
+public class Menu {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
