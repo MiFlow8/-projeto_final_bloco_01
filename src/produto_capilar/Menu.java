@@ -2,12 +2,16 @@ package produto_capilar;
 
 import java.util.Scanner;
 import produto_capilar.model.Progressiva;
+import produto_capilar.model.ProdutoCapilar;
+import produto_capilar.controller.ProdutoController;
 
 public class Menu {
 
 	public static void main(String[] args) {
 		
 		 Scanner leia = new Scanner(System.in);
+		 
+		 ProdutoController controller = new ProdutoController();
 		 
 			int opcao;
 			
@@ -41,18 +45,15 @@ public class Menu {
 				case 1:
 					System.out.println("Cadastrando produto...");
 					
-					Progressiva p = new Progressiva(1, "Escova Progressiva Nutri liss", 120.0, "Milly Hair", "Sem formol");
-					
-					System.out.println("\nProduto cadastrado com sucesso!");
-					System.out.println("Nome: " + p.getNome());
-					System.out.println("Marca: " + p.getMarca());
-					System.out.println("Preço: " + p.getPreco());
-					System.out.println("Tipo: " + p.getTipoAlisamento());
-					break;
-					
+					 ProdutoCapilar p = new Progressiva(1,"Escova Progressiva Nutri Liss",120.0, "Milly hair", "Sem formol");
+
+					   controller.cadastrar(p);
+
+					    break;
 					
 				case 2:
 					System.out.println("Listar produtos...");
+					controller.listar();
 					break;
 				case 3:
 					System.out.println("Buscar produto...");
